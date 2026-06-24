@@ -1,0 +1,81 @@
+{
+    "status": "success",
+    "input_path": "hdfs://localhost:9000/user/bigdata/supply_chain/silver/clean_orders.parquet",
+    "target_column": "late_delivery_risk",
+    "features_used": [
+        "type",
+        "category_name",
+        "customer_segment",
+        "department_name",
+        "market",
+        "order_region",
+        "order_country",
+        "order_state",
+        "shipping_mode",
+        "days_for_shipment_scheduled",
+        "order_item_quantity",
+        "order_item_discount",
+        "order_item_discount_rate",
+        "order_item_product_price",
+        "product_price",
+        "sales"
+    ],
+    "excluded_leakage_columns": [
+        "days_for_shipping_real",
+        "delivery_status",
+        "shipping_date",
+        "shipping_delay_days"
+    ],
+    "input_rows": 180519,
+    "train_rows": 144415,
+    "test_rows": 36104,
+    "class_distribution": {
+        "0": 81542,
+        "1": 98977
+    },
+    "metrics_by_model": {
+        "Logistic Regression": {
+            "accuracy": 0.6985,
+            "precision": 0.8348,
+            "recall": 0.5612,
+            "f1_score": 0.6712,
+            "roc_auc": 0.7554
+        },
+        "Random Forest": {
+            "accuracy": 0.6948,
+            "precision": 0.8147,
+            "recall": 0.5739,
+            "f1_score": 0.6734,
+            "roc_auc": 0.7564
+        }
+    },
+    "best_model": "Random Forest",
+    "best_model_metrics": {
+        "accuracy": 0.6948,
+        "precision": 0.8147,
+        "recall": 0.5739,
+        "f1_score": 0.6734,
+        "roc_auc": 0.7564
+    },
+    "confusion_matrix_best_model": [
+        [
+            13724,
+            2584
+        ],
+        [
+            8435,
+            11361
+        ]
+    ],
+    "output_files": {
+        "model": "D:\\Big_Data\\supply_chain_delivery_risk\\models\\late_delivery_model.pkl",
+        "encoders": "D:\\Big_Data\\supply_chain_delivery_risk\\models\\encoders.pkl",
+        "metrics": "D:\\Big_Data\\supply_chain_delivery_risk\\models\\model_metrics.json",
+        "confusion_matrix": "D:\\Big_Data\\supply_chain_delivery_risk\\reports\\figures\\confusion_matrix.png",
+        "model_comparison": "D:\\Big_Data\\supply_chain_delivery_risk\\reports\\figures\\model_comparison.png",
+        "roc_curve": "D:\\Big_Data\\supply_chain_delivery_risk\\reports\\figures\\roc_curve.png",
+        "feature_importance": "D:\\Big_Data\\supply_chain_delivery_risk\\reports\\figures\\feature_importance_top20.png"
+    },
+    "start_time": "2026-05-07T02:20:04.303838",
+    "end_time": "2026-05-07T02:20:39.916531"
+}
