@@ -44,8 +44,6 @@ supply-chain-delivery-risk-big-data/
 ├── README.md
 ├── requirements.txt
 ├── docker-compose.yml
-├── .env.example
-├── .gitignore
 ├── src/
 ├── models/
 └── reports/
